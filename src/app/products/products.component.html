@@ -1,0 +1,68 @@
+<div class="row nav" *ngIf="!isCart">
+    <div class="col-10 sm-col-3 ">
+        <h1>Products</h1>
+    </div>
+    <div class="col-2 sm-col-1 "><button (click)="productDetails()">
+            <mat-icon>add_shopping_cart_outlined</mat-icon>
+        </button>
+    </div>
+</div>
+
+<div *ngIf="!isCart">
+    <div class="products row" *ngFor="let item of data , let i=index">
+        <div class="col-3 sm-col-3"><img src={{item.img}} alt="check" style="width:40%;"></div>
+        <div class="col">
+            <div class="col-12 sm-col-3"><b>{{item.details}}</b></div>
+            <div class="col-12 sm-col-3">Rs : {{item.rate}}</div>
+        </div>
+
+        <div class="col-2 sm-col-2"><button class="btn button" (click)="addProduct(i)">Add Cart</button></div>
+    </div>
+</div>
+
+<div *ngIf="isCart">
+    <div class="products row" *ngFor="let item of selectedProduct , let i=index">
+        <div class="col-3 sm-col-1"><img src={{item.img}} alt="check" style="width:30%;"></div>
+        <div class="col-7 sm-col-3">
+            <div class="col-12 sm-col-3"><b>{{item.details}}</b></div>
+            <div class="col-12 sm-col-3">Rs : {{item.rate}}</div>
+        </div>
+        <div class="col-2">
+            <div class="col-2 sm-col-3"><button (click)="delete(i)">Delete</button></div>
+            <br>
+            <button class="col-1 sm-col-1 count" (click)="deCrease(i)">-</button>
+            <button class="col-1 sm-col-1 button">{{countValue[i]}}</button>
+            <button class="col-1 sm-col-1 count" (click)="inCrease(i)">+</button>
+        </div>
+    </div>
+
+
+    <div class="row foot" *ngIf="isCart">
+        <div class="col-10 sm-col-3 ">
+            <h2><b>Total Amount</b></h2>
+            <h4><b>Rs :{{itemCount}}</b></h4>
+        </div>
+        <div class="col-2 sm-col-1 "><button class="btn button" (click)="inVoice()">InVoice</button>
+        </div>
+    </div>
+
+    <div id="customers">
+        <div class="col-md-8" id="pdfTable" #pdfTable>
+            <h2 style="text-align: center;">Order Details</h2>
+            <table class="table table-bordered">
+                <tr class="table-primary">
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Amount</th>
+                </tr>
+                <tr *ngFor="let user of selectedProduct,let i =index">
+                    <th>{{user.details}}</th>
+                    <td>{{user.rate}}</td>
+                    <td>{{countValue[i]}}</td>
+                    <td>{{countAmount[i]}} </td>
+                </tr>
+            </table>
+            <h3 style="text-align: right;">Total Amount: <b>{{itemCount}} <i>rs.</i></b></h3>
+        </div>
+    </div>

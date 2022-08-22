@@ -1,0 +1,44 @@
+.nav {
+    padding: 15px;
+    background-color: rgb(148, 16, 148);
+    color: white;
+    align-items: center;
+}
+
+.products {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid rgb(248, 247, 247);
+    border-radius: 30px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    align-items: center;
+}
+
+.button {
+    background-color: rgb(148, 16, 148);
+    color: white;
+    border: solid 1px rgb(148, 16, 148);
+    text-align: center;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.count {
+    border: solid 1px rgb(148, 16, 148);
+    border-radius: 5px;
+    color: rgb(148, 16, 148);
+    text-align: center;
+}
+
+.foot {
+    padding: 10px;
+    border: 3px solid rgb(248, 247, 247);
+    border-radius: 5px;
+    align-items: center;
+    margin: 20px;
+}
+
+#customers {
+    visibility: hidden;
+    height: 0px;
+}
